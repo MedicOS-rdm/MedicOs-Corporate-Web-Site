@@ -15,25 +15,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,420;9..144,520;9..144,600;9..144,680&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 :root{
-  /* Paleta — extraída directamente del logo MedicOs */
-  --navy: #0a2d59;        /* tinta del cabello / corbata en el logo */
-  --navy-deep: #071f3f;
-  --blue: #1a63c4;        /* azul del aro del logo */
-  --blue-bright: #0a5fe0;  /* azul de la carpeta del logo */
-  --sky: #eaf2fd;
-  --sky-soft: #f4f8fd;
+  /* Paleta oficial de MedicOs — según el Manual del Usuario v2.0 */
+  --navy: #033477;        /* Azul oscuro — títulos y jerarquía visual */
+  --navy-deep: #021f4a;
+  --blue: #0460D3;        /* Azul principal — acciones, marca, enlaces */
+  --blue-bright: #0460D3;
+  --sky: #E1EAFB;         /* Azul suave — fondos informativos */
+  --sky-soft: #F2F6FD;
   --paper: #fbfdff;
   --ink: #0f2138;
-  --muted: #5c7292;
+  --muted: #55647C;       /* Gris azulado — textos auxiliares */
   --line: #dde7f4;
   --white: #ffffff;
-  --amber: #e2a63a; /* acento cálido puntual, uso mínimo */
+  --amber: #C08A3E;       /* Dorado — recordatorios y énfasis cálido */
+  --red-alert: #B23A3A;   /* Rojo de alerta — alergias y signos vitales */
+  --green-ok: #1E8F6D;    /* Verde — estados confirmados */
+  --steel: #2B5C8A;       /* Azul acero — certificados y elementos secundarios */
 
   --font-display: "Fraunces", "Iowan Old Style", serif;
   --font-body: "Manrope", "Segoe UI", sans-serif;
 
-  --shadow-soft: 0 18px 40px -22px rgba(10, 45, 89, 0.35);
-  --shadow-card: 0 12px 30px -18px rgba(10, 45, 89, 0.28);
+  --shadow-soft: 0 18px 40px -22px rgba(3, 52, 119, 0.35);
+  --shadow-card: 0 12px 30px -18px rgba(3, 52, 119, 0.28);
 
   --radius-lg: 22px;
   --radius-md: 14px;
@@ -481,8 +484,9 @@ section{ padding: 88px 0; }
     .pricing-table td.col-label::before{ display: none; }
   }
 
-  .notes-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  @media (max-width: 860px){ .notes-grid{ grid-template-columns: 1fr; } }
+  .notes-grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  @media (max-width: 1080px){ .notes-grid{ grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 620px){ .notes-grid{ grid-template-columns: 1fr; } }
   .note-card{ background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 26px; }
   .note-card h3{ font-size: 1.05rem; }
 
@@ -574,16 +578,28 @@ section{ padding: 88px 0; }
               <td data-label="Clínica / Elite"><span class="check">✓</span> Incluido</td>
             </tr>
             <tr>
+              <td class="col-label">Signos vitales y alertas</td>
+              <td data-label="Esencial"><span class="check">✓</span> Incluido</td>
+              <td class="col-pro" data-label="Profesional"><span class="check">✓</span> Incluido</td>
+              <td data-label="Clínica / Elite"><span class="check">✓</span> Incluido</td>
+            </tr>
+            <tr>
+              <td class="col-label">Reserva de citas en línea</td>
+              <td data-label="Esencial"><span class="check">✓</span> Incluido</td>
+              <td class="col-pro" data-label="Profesional"><span class="check">✓</span> Incluido</td>
+              <td data-label="Clínica / Elite"><span class="check">✓</span> Incluido</td>
+            </tr>
+            <tr>
               <td class="col-label">Recetas y certificados QR</td>
               <td data-label="Esencial">Generación y descarga en PDF</td>
               <td class="col-pro" data-label="Profesional">PDF + envío por email (SMTP)</td>
               <td data-label="Clínica / Elite">PDF + envío por email y WhatsApp</td>
             </tr>
             <tr>
-              <td class="col-label">Cuentas de secretaria</td>
-              <td data-label="Esencial">Sin cuentas de secretaria</td>
-              <td class="col-pro" data-label="Profesional">Hasta 2 cuentas</td>
-              <td data-label="Clínica / Elite">Hasta 5 cuentas o ilimitadas</td>
+              <td class="col-label">Cuenta de asistente (secretaria o enfermera)</td>
+              <td data-label="Esencial">Sin cuenta de asistente</td>
+              <td class="col-pro" data-label="Profesional">1 cuenta de asistente</td>
+              <td data-label="Clínica / Elite">1 cuenta de asistente</td>
             </tr>
             <tr>
               <td class="col-label">Recordatorios automáticos</td>
@@ -618,7 +634,11 @@ section{ padding: 88px 0; }
         </div>
         <div class="note-card reveal">
           <h3>Vademécum</h3>
-          <p style="margin:0;">El buscador de medicamentos usa un catálogo de ejemplo, no oficial ni exhaustivo. Antes de un uso clínico a gran escala, se recomienda sustituirlo por un catálogo vigente.</p>
+          <p style="margin:0;">El buscador de medicamentos incluye un catálogo de ejemplo de unos 20 medicamentos, no oficial ni exhaustivo. Antes de un uso clínico a gran escala, se recomienda sustituirlo por un catálogo vigente.</p>
+        </div>
+        <div class="note-card reveal">
+          <h3>Firma digital</h3>
+          <p style="margin:0;">MedicOs genera los documentos en PDF, pero aún no incorpora firma digital real del médico. No debe asumirse que el PDF equivale por sí solo a una firma electrónica legalmente válida en toda jurisdicción.</p>
         </div>
         <div class="note-card reveal">
           <h3>Disponibilidad</h3>
@@ -640,7 +660,15 @@ section{ padding: 88px 0; }
       </div>
       <div class="faq-item">
         <h3>¿El registro de médicos es público?</h3>
-        <p>No. Cada consultorio se da de alta desde una página de administración exclusiva. Una vez con su cuenta activa, el médico crea y administra las cuentas de secretaria de su propia clínica.</p>
+        <p>No. Cada consultorio se da de alta desde una página de administración exclusiva. Una vez con su cuenta activa, el médico crea y administra la cuenta de asistente de su propia clínica.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Cuántas cuentas de secretaria o enfermera puedo crear?</h3>
+        <p>Por ahora, cada consultorio puede tener una cuenta de asistente activa a la vez —secretaria o enfermera, a elección del médico—. Para cambiar de persona, se elimina la cuenta anterior y se crea una nueva.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Las recetas o certificados se pueden borrar?</h3>
+        <p>No se eliminan: se anulan. MedicOs pide un motivo obligatorio y conserva el documento original junto con la anulación, para mantener la trazabilidad del historial clínico.</p>
       </div>
       <div class="faq-item">
         <h3>¿Qué pasa si no configuro Twilio o SMTP?</h3>
@@ -672,7 +700,7 @@ section{ padding: 88px 0; }
       <h4>Contacto</h4>
       <ul>
         <li><a href="mailto:medic.os.rdm@gmail.com">medic.os.rdm@gmail.com</a></li>
-        <li><span>© 2026 MedicOs — RonnDuCorp</span></li>
+        <li><span>© 2026 MedicOs — RonnDu Corp.</span></li>
       </ul>
     </div>
   </div>

@@ -464,25 +464,63 @@ section{ padding: 88px 0; }
     .plan-badge-float{ display: none; } /* la vista móvil apilada ya indica el plan destacado por color */
   }
 
-  .check{ color: var(--blue-bright); font-weight: 800; }
+  /* Vista de escritorio/tablet: tabla completa */
+  .pricing-mobile{ display: none; }
 
-  /* Vista móvil apilada */
   @media (max-width: 860px){
-    .pricing-table thead{ display: none; }
-    .pricing-table, .pricing-table tbody, .pricing-table tr, .pricing-table td{ display: block; width: 100%; }
-    .pricing-table tr{ border-bottom: 8px solid var(--paper); }
-    .pricing-table td{ border-bottom: 1px solid var(--line); padding: 14px 20px; }
-    .pricing-table td.col-label{ background: var(--navy); color: var(--white); }
-    .pricing-table td::before{
-      content: attr(data-label);
-      display: block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--blue-bright);
-      margin-bottom: 4px;
+    /* En móvil, la tabla se reemplaza por tarjetas dedicadas por plan,
+       para que el precio y el CTA de cada paquete siempre sean visibles. */
+    .table-shell{ display: none; }
+    .pricing-mobile{ display: flex; flex-direction: column; gap: 20px; }
+
+    .plan-card-mobile{
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 26px 22px;
+      box-shadow: var(--shadow-card);
     }
-    .pricing-table td.col-label::before{ display: none; }
+    .plan-card-mobile.is-featured{
+      border-color: var(--blue-bright);
+      background: var(--sky);
+    }
+    .plan-card-mobile .plan-badge-mobile{
+      display: inline-block;
+      background: var(--blue-bright);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .plan-card-mobile .plan-name{ display: block; font-size: 1.25rem; }
+    .plan-card-mobile .plan-price{ display: block; margin-top: 4px; }
+    .plan-card-mobile .plan-audience{ display: block; margin: 6px 0 16px; }
+    .plan-card-mobile .plan-cta{ width: 100%; justify-content: center; margin-top: 0; }
+
+    .plan-card-mobile .feature-list{
+      list-style: none;
+      margin: 20px 0 0;
+      padding: 16px 0 0;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .plan-card-mobile .feature-list li{ font-size: 0.9rem; }
+    .plan-card-mobile .feature-list .f-label{
+      display: block;
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 0.82rem;
+      margin-bottom: 2px;
+    }
+    .plan-card-mobile .feature-list .f-value{ color: var(--ink); }
+    .plan-card-mobile .feature-list .check{ margin-right: 4px; }
   }
+
+  .check{ color: var(--blue-bright); font-weight: 800; }
 
   .notes-grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   @media (max-width: 1080px){ .notes-grid{ grid-template-columns: repeat(2, 1fr); } }
@@ -615,6 +653,60 @@ section{ padding: 88px 0; }
             </tr>
           </tbody>
         </table>
+        </div>
+      </div>
+
+      <div class="pricing-mobile reveal">
+        <div class="plan-card-mobile">
+          <span class="plan-name">Esencial</span>
+          <span class="plan-price">$19&ndash;$29 <small>/ mes</small></span>
+          <span class="plan-audience">Médicos independientes en inicio de práctica</span>
+          <a class="btn btn-ghost plan-cta" href="contacto.html">Elegir Esencial</a>
+          <ul class="feature-list">
+            <li><span class="f-label">Expediente &amp; SOAP</span><span class="f-value"><span class="check">✓</span> Incluido</span></li>
+            <li><span class="f-label">Buscador CIE-10 y vademécum</span><span class="f-value"><span class="check">✓</span> Incluido</span></li>
+            <li><span class="f-label">Signos vitales y alertas</span><span class="f-value"><span class="check">✓</span> Incluido</span></li>
+            <li><span class="f-label">Reserva de citas en línea</span><span class="f-value"><span class="check">✓</span> Incluido</span></li>
+            <li><span class="f-label">Recetas y certificados QR</span><span class="f-value">Generación y descarga en PDF</span></li>
+            <li><span class="f-label">Cuenta de asistente (secretaria o enfermera)</span><span class="f-value">Sin cuenta de asistente</span></li>
+            <li><span class="f-label">Recordatorios automáticos</span><span class="f-value">Modo simulado (sin costo de mensajería)</span></li>
+            <li><span class="f-label">Aislamiento de datos</span><span class="f-value"><span class="check">✓</span> Por consultorio</span></li>
+          </ul>
+        </div>
+
+        <div class="plan-card-mobile is-featured">
+          <span class="plan-badge-mobile">Más elegido</span>
+          <span class="plan-name">Profesional</span>
+          <span class="plan-price">$49&ndash;$59 <small>/ mes</small></span>
+          <span class="plan-audience">Consultorios consolidados con volumen medio de citas</span>
+          <a class="btn btn-primary plan-cta" href="contacto.html">Elegir Profesional</a>
+          <ul class="feature-list">
+            <li><span class="f-label">Expediente &amp; SOAP</span><span class="f-value"><span class="check">✓</span> Incluido</span></li>
+            <li><span class="f-label">Buscador CIE-10 y vademécum</span><span class="f-value"><span class="check">✓</span> Incluido</span></li>
+            <li><span class="f-label">Signos vitales y alertas</span><span class="f-value"><span class="check">✓</span> Incluido</span></li>
+            <li><span class="f-label">Reserva de citas en línea</span><span class="f-value"><span class="check">✓</span> Incluido</span></li>
+            <li><span class="f-label">Recetas y certificados QR</span><span class="f-value">PDF + envío por email (SMTP)</span></li>
+            <li><span class="f-label">Cuenta de asistente (secretaria o enfermera)</span><span class="f-value">1 cuenta de asistente</span></li>
+            <li><span class="f-label">Recordatorios automáticos</span><span class="f-value">WhatsApp o SMS vía Twilio</span></li>
+            <li><span class="f-label">Aislamiento de datos</span><span class="f-value"><span class="check">✓</span> Por consultorio</span></li>
+          </ul>
+        </div>
+
+        <div class="plan-card-mobile">
+          <span class="plan-name">Clínica / Elite</span>
+          <span class="plan-price">$89&ndash;$119 <small>/ mes</small></span>
+          <span class="plan-audience">Clínicas multi-médico o consultorios con equipo de recepción</span>
+          <a class="btn btn-ghost plan-cta" href="contacto.html">Elegir Clínica</a>
+          <ul class="feature-list">
+            <li><span class="f-label">Expediente &amp; SOAP</span><span class="f-value"><span class="check">✓</span> Incluido</span></li>
+            <li><span class="f-label">Buscador CIE-10 y vademécum</span><span class="f-value"><span class="check">✓</span> Incluido</span></li>
+            <li><span class="f-label">Signos vitales y alertas</span><span class="f-value"><span class="check">✓</span> Incluido</span></li>
+            <li><span class="f-label">Reserva de citas en línea</span><span class="f-value"><span class="check">✓</span> Incluido</span></li>
+            <li><span class="f-label">Recetas y certificados QR</span><span class="f-value">PDF + envío por email y WhatsApp</span></li>
+            <li><span class="f-label">Cuenta de asistente (secretaria o enfermera)</span><span class="f-value">1 cuenta de asistente</span></li>
+            <li><span class="f-label">Recordatorios automáticos</span><span class="f-value">WhatsApp o SMS vía Twilio</span></li>
+            <li><span class="f-label">Aislamiento de datos</span><span class="f-value"><span class="check">✓</span> Por consultorio</span></li>
+          </ul>
         </div>
       </div>
       <p style="margin-top: 18px; font-size: 0.85rem;">Precios de referencia en USD. El rango depende de la integración de mensajería (Twilio) y de servidores SMTP que cada consultorio elija usar.</p>

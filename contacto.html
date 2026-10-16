@@ -472,6 +472,14 @@ section{ padding: 88px 0; }
 
   .steps{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
   @media (max-width: 860px){ .steps{ grid-template-columns: 1fr; } }
+  .band-navy{ background: var(--navy); }
+  .band-navy .eyebrow-line{ color: #8fbcff; }
+  .band-navy .pulse-dot{ background: #8fbcff; }
+  .band-navy h2{ color: var(--white); }
+  .band-navy .step-card h3{ color: var(--white); }
+  .band-navy .step-card p{ color: #dbe6f5; }
+  .band-navy .step-card::before{ background: rgba(255,255,255,0.22); }
+  .band-navy .step-card .step-num{ background: #8fbcff; color: var(--navy); }
   .step-card{ position: relative; padding-left: 20px; }
   .step-card::before{
     content: "";
@@ -525,7 +533,7 @@ section{ padding: 88px 0; }
     <div class="container contact-hero reveal">
       <div class="eyebrow-line"><span class="pulse-dot"></span>Contacto</div>
       <h1>Hablemos de tu consultorio</h1>
-      <p style="font-size: 1.05rem;">Cuéntanos cómo trabajas hoy —cuántos pacientes atiendes, si cuentas con secretaria o enfermera, si ya usas WhatsApp para confirmar citas— y te recomendamos el paquete correcto.</p>
+      <p style="font-size: 1.05rem;">Cuéntanos cómo trabajas hoy —cuántos pacientes atiendes, si tienes equipo de apoyo, si ya usas WhatsApp para confirmar citas— y te recomendamos el paquete correcto.</p>
     </div>
   </section>
 
@@ -590,10 +598,9 @@ section{ padding: 88px 0; }
           <div class="field">
             <label for="paquete">Paquete de interés</label>
             <select id="paquete" name="Paquete de interés">
-              <option>Básico</option>
+              <option>Esencial</option>
               <option>Profesional</option>
-              <option>Profesional Premium</option>
-              <option>Alianza</option>
+              <option>Clínica / Elite</option>
               <option>Aún no lo sé</option>
             </select>
           </div>
@@ -608,7 +615,7 @@ section{ padding: 88px 0; }
     </div>
   </section>
 
-  <section class="band">
+  <section class="band band-navy">
     <div class="container">
       <div class="section-head reveal">
         <div class="eyebrow-line"><span class="pulse-dot"></span>Qué sigue</div>

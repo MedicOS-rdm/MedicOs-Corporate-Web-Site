@@ -418,7 +418,9 @@ section{ padding: 88px 0; }
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-card);
+    table-layout: fixed;
   }
+  .pricing-table thead th:not(.col-label){ width: 26%; }
   .pricing-table th, .pricing-table td{
     padding: 20px 22px;
     text-align: left;
@@ -451,7 +453,7 @@ section{ padding: 88px 0; }
   .table-shell{ position: relative; padding-top: 18px; }
   .plan-badge-float{
     position: absolute;
-    top: 0; left: calc(22% + 22px);
+    top: 0; left: calc(48% + 22px);
     background: var(--blue-bright);
     color: var(--white);
     font-size: 0.72rem;
